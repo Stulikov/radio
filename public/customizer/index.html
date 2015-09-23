@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<title>RAU Site</title>
+	<meta name="keywords" content="Radio, SSAU, Aerospace University, Аэрокос, СГАУ, Радио СГАУ" />
+	<meta name="author" content="Aleksey Stulikov" />
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+	<link rel="stylesheet" type="text/css" href="../css/components.css" />
+	<link rel="stylesheet" type="text/css" href="../css/blocks.css" />
+	<link rel="stylesheet" type="text/css" href="./css/customizer.css" />
+	<link rel="stylesheet" type="text/css" href="./css/colorpicker.css" />
+	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script src="../js/jquery-2.1.0.min.js"></script>
+	<script src="../js/cookie.js"></script>
+	<script src="./js/colorpicker.js"></script>
+	<!--script src="./js/preload.js"></script-->
+	<script src="./js/customizer.js"></script>
+</head>
+<body>
+
+<div id="serverrespond" class="bad"><p>RESPOND</p></div>
+
+<div id="loginwrapper">
+<div>
+	<form>
+		<label>Login: <input type="text" id="lw_login"></label>
+		<label>Password: <input type="password" id="lw_pass"></label>
+		<button type="submit" id="lw_submit" class="btn">Try</button>
+	</form>
+</div>
+</div>
+<div id="allthecontent">
+
+
+<div id="mainland">
+	<h1 class="rau-stationname">Radio SSAU</h1>
+	<div class="rau-player">
+		<div class="rau-playback_controls">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rau-play">
+				<polygon points="0,0 34.6,20 0,40"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rau-stop dno">
+				<polygon points="0,0 12.3,0 12.3,40 0,40"/>
+				<polygon points="22.3,0 34.6,0 34.6,40 22.3,40"/>
+			</svg>
+		</div>
+		<h2 class="rau-title">now playing</h2>
+		<h2 class="rau-songname">MetallicA – Unforgiven II</h2>
+	</div>
+	<div class="rau-keypoints">
+		<h1>KEYPOINTS</h1>
+		<div class="rau-posting_control"><p class="rau-motif">Сегодня разговариваем об освобождении Михаила Борисовича Ходорковского. Чего Путин хочет этим добиться, вернется ли МБ на политическую арену России? В качестве кого? Свое мнение выскажет известный политолог Валдис Пельш.</p></div>
+		<div class="rau-posting_control"><p class='rau-kp'><q>Ходорковский вполне может оказаться заложником Путина и подыгрывать ему.</q> — <b class='rau-kp_author'>Валдис Пельш</b></p></div>
+	</div>
+</div>
+
+<div id="controls_wrapper">
+
+<h3>Общий вид</h3>
+<label for="general-background-color">Фоновый цвет</label>
+<input name="general-background-color" class="general-background-color" type="text" value="FFFFFF"><div class="colorpreview"></div><br>
+<div class="cp">
+	<input name="cp-hue" type="range" min="0" max="359" step="1" value="0">
+	<input name="cp-saturation" type="range" min="0" max="359" step="1" value="0">
+	<input name="cp-lightness" type="range" min="0" max="359" step="1" value="0">
+	<input name="cp-red" type="range" min="0" max="255" step="1" value="0">
+	<input name="cp-green" type="range" min="0" max="255" step="1" value="0">
+	<input name="cp-blue" type="range" min="0" max="255" step="1" value="0">
+</div>
+<label for="general-background-image">Фоновая картинка</label>
+<input name="general-background-image" class="general-background-image" type="text" value="../stuff/tumblr_n0cfgnn9rP1r46py4o1_1280.jpg"><br>
+<label for="general-padding">Отсупы по горизонтали</label>
+<input name="general-padding" class="general-padding" type="range" min="0" max="30" step="1" value="13"><br>
+
+<h3>Название</h3>
+<label for="brand-align">Положение</label>
+<input type="radio" name="brand-align" class="brand-align" value="left"><div class="radiocomment">left</div>
+<input type="radio" name="brand-align" class="brand-align" value="center"><div class="radiocomment">center</div>
+<input type="radio" name="brand-align" class="brand-align" value="right"><div class="radiocomment">right</div><br>
+<label for="brand-padding-horizontal">Отступ по горизонтали</label>
+<input name="brand-padding-horizontal" class="brand-padding-horizontal" type="range" min="0" max="30" step="1" value="13"><br>
+<label for="brand-padding-vertical">Отступ сверху</label>
+<input name="brand-padding-vertical" class="brand-padding-vertical" type="range" min="0" max="60" step="1" value="7"><br>
+<label for="brand-font-size">Размер букв</label>
+<input name="brand-font-size" class="brand-font-size" type="range" min="0" max="3" step="0.05" value="1.8"><br>
+<label for="brand-letter-spacing">Разрядка</label>
+<input name="brand-letter-spacing" class="brand-letter-spacing" type="range" min="0" max="1" step="0.01" value="0.1"><br>
+<label for="brand-color">Цвет</label>
+<input name="brand-color" class="brand-color" type="text" value="FFFFFF"><div class="colorpreview"></div><br>
+
+<h3>Плеер</h3>
+<label for="player-padding">Отступ сверху</label>
+<input name="player-padding" class="player-padding" type="range" min="0" max="60" step="1" value="26"><br>
+<label for="player-controls-color">Цвет контролов</label>
+<input name="player-controls-color" class="player-controls-color" type="text" value="FFFFFF"><div class="colorpreview"></div><br>
+<label for="player-nowplaying-color">Цвет now playing</label>
+<input name="player-nowplaying-color" class="player-nowplaying-color" type="text" value="FFFFFF"><div class="colorpreview"></div><br>
+<label for="player-song-color">Цвет песни</label>
+<input name="player-song-color" class="player-song-color" type="text" value="FFFFFF"><div class="colorpreview"></div><br>
+
+<h3>Keypoints</h3>
+<label for="kp-padding">Отступ сверху</label>
+<input name="kp-padding" class="kp-padding" type="range" min="0" max="60" step="1" value="27"><br>
+<label for="kp-color">Цвет заголовка</label>
+<input name="kp-color" class="kp-color" type="text" value="FFFFFF"><div class="colorpreview"></div><br>
+<label for="kp-quote-color">Цвет текста</label>
+<input name="kp-quote-color" class="kp-quote-color" type="text" value="FFFFFF"><div class="colorpreview"></div><br>
+<label for="kp-author-color">Цвет авторства</label>
+<input name="kp-author-color" class="kp-author-color" type="text" value="FFFFFF"><div class="colorpreview"></div><br>
+
+<button id="savestyle">Сохранить оформление</button>
+<button id="truncatestyle">Вернуться к стандартному оформлению</button>
+<textarea id="styles"></textarea>
+</div>
+
+</div>
+</body>
+</html>
